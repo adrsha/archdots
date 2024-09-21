@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       5e0031f1-45ee-4278-8c5f-dd7429686332
+:END:
+#+title: Computer Organization and Architecture (COA) 
+#+author:  Adarsha Acharya
+

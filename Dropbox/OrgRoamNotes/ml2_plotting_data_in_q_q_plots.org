@@ -1,0 +1,71 @@
+:PROPERTIES:
+:ID:       e3dbde7e-e34a-485c-aad1-a687f191ba6f
+:END:
+#+title: ML2 - Plotting data in Q-Q plots
+#+filetags: :baby:
+#+author:  Adarsha Acharya
+#+date: Jul 13, 2024 12 pm
+
+* Importing Libraries and Loading Data
+
+#+BEGIN_SRC python
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import pandas as pd
+
+    df = pd.read_csv('~/Documents/Student_data.csv')
+
+    categorical_columns = df.select_dtypes(include=['category', 'object']).columns
+    numerical_columns = df.select_dtypes(exclude=['category', 'object']).columns
+#+END_SRC
+
+* Plotting Pass/Fail Distribution by Column
+
+#+BEGIN_SRC python
+    # Assuming df, pass/fail column, and GPA column are already defined as per previous discussions
+
+    # Exclude columns that are not needed for plotting
+    columns_to_plot = [col for col in df.columns if col not in ['pass', 'G3', 'pass/fail', 'GPA']]
+
+    # Calculate number of rows and columns for subplot grid
+    num_cols = 2  # Number of columns in subplot layout
+    num_rows = (len(columns_to_plot) + 1) // num_cols  # Calculate number of rows needed
+
+    # Adjust figure size based on number of subplots
+    fig_width = 15
+    fig_height = num_rows * 5  # Adjust height based on number of rows
+
+    plt.figure(figsize=(fig_width, fig_height))
+
+    # Iterate through each column and plot
+    for i, col in enumerate(columns_to_plot):
+	plt.subplot(num_rows, num_cols, i + 1)
+	pass_fail_cross = pd.crosstab(index=df[col], columns=df['pass/fail'])
+	pass_fail_cross.plot(kind='bar', stacked=True, color=['red', 'green'], ax=plt.gca(), legend=None)
+	plt.title(f'Pass/Fail distribution by {col}')
+	plt.xlabel(col)
+	plt.ylabel('Count')
+	plt.xticks(rotation=45)
+	plt.grid(False)
+	plt.tight_layout(pad=3.0)  # Adjust spacing between subplots
+
+    # Adjust layout and display the plot
+    plt.tight_layout()
+    plt.legend(['Fail', 'Pass'], loc='upper right')
+    plt.show()
+#+END_SRC
+
+* Printing Unique Values in Each Column
+
+#+BEGIN_SRC python
+    # Iterate through each column
+    for column in df.columns:
+	# Get unique values in the column
+	unique_values = df[column].unique()
+
+	# Print the column name and its unique values
+	print(f"Unique values in {column} column:")
+	print(unique_values)
+	print()
+#+END_SRC
+

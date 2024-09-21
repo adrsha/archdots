@@ -1,0 +1,34 @@
+use colored::*;
+use rand::Rng;
+use std::{cmp::Ordering, io};
+
+fn main() {
+    println!("Guess the number!");
+    let real_val: i32 = rand::thread_rng().gen_range(0..10);
+    let mut inp = String::new(); // String is a struct, and new is the implemented function for that struct. New returns a String with vec: value as would be when initialized
+
+    guess_fn(&mut inp, real_val);
+
+    println!("Real value was {}", real_val);
+}
+
+fn guess_fn(inp: &mut String, real_val: i32) {
+    loop {
+        println!("Please input your guess.");
+
+        inp.clear();
+        io::stdin()
+            .read_line(inp) // This is a Result data type that has the value as well as the error. readline is this datatype because it can fail
+            .expect("Failed to read input"); // If an error wasn't expected, i could put unwrap here as well
+        let guessed_val = inp.trim().parse::<i32>().expect("An error occured");
+
+        match guessed_val.cmp(&real_val) {
+            Ordering::Less => println!("{}", "Too less".red()),
+            Ordering::Equal => {
+                println!("{}", "You got it".green());
+                break;
+            }
+            Ordering::Greater => println!("{}", "Too Large".red()),
+        }
+    }
+}

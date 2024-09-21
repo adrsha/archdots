@@ -1,0 +1,12 @@
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = https://github.com/adrsha/neovim
+[submodule "Codes/SBS-Calculator"]
+	path = Codes/SBS-Calculator
+	url = https://github.com/adrsha/SBS-Calculator
+[submodule "Documents"]
+	path = Documents
+	url = https://github.com/adrsha/Documents
+[submodule "Scripts"]
+	path = Scripts
+	url = https://github.com/adrsha/scripts

@@ -1,0 +1,9 @@
+[Default Applications]
+x-scheme-handler/viber=viber.desktop
+x-scheme-handler/anytype=anytype.desktop
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
+
+[Added Associations]
+x-scheme-handler/sms=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
+x-scheme-handler/tonsite=org.telegram.desktop.desktop;

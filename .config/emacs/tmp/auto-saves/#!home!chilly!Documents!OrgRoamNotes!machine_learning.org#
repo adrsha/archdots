@@ -1,0 +1,19 @@
+:PROPERTIES:
+:ID:       44f21521-78c9-4b61-b36d-765b9790456c
+:END:
+#+title: Machine Learning
+#+author:  Adarsha Acharya
+
+[[id:48ad39e3-745c-4d78-b4c7-2dc91fa03817][ML0 - Importing Libs]]
+
+[[id:5263c34c-9dcf-4a2a-81a3-97a0bdb280b1][ML1 - ML Data Manipulation]]
+
+[[id:e3dbde7e-e34a-485c-aad1-a687f191ba6f][ML2 - Plotting data in Q-Q plots]]
+
+[[id:0fd87b62-7c7b-449d-abbb-167e6becd1b9][ML3 - Exploitary Data Analysis using correlation]]
+
+[[id:d36a4ef0-361c-4663-bd5d-16090d509f36][ML4 - Statistical Tests]]
+
+[[id:085ccdbe-0f4c-43f4-9321-2cbe7e05e31b][ML5 - Analysis of Filtered dataset]]
+
+[[id:428990bb-e673-4c0d-b9eb-b3595fd9d148][ML6 - Implementing decision tree on a dataset]]

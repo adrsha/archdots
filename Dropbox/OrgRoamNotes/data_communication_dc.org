@@ -1,0 +1,6 @@
+:PROPERTIES:
+:ID:       f2e27174-2b11-49b7-bb02-b2e8e6337d7a
+:END:
+#+title: Data Communication (DC)
+#+author:  Adarsha Acharya
+

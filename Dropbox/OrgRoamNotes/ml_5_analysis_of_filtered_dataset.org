@@ -1,0 +1,91 @@
+:PROPERTIES:
+:ID:       085ccdbe-0f4c-43f4-9321-2cbe7e05e31b
+:END:
+#+title: ML5 - Analysis of Filtered dataset
+#+author:  Adarsha Acharya
+
+* Machine Learning Data Preparation
+
+Machine learning algorithms do not understand the strings given to them. Therefore, they are converted to numeric values. To do this, we either use:
+1. For ordinal data, i.e. poor, mid, good, rich, we use one `hot encoding`.
+2. For nominal data (orderless data like red, green, blue), we use label encoding.
+
+We further normalize the data after converting them to the respective types.
+
+#+BEGIN_SRC python :Session
+    import pandas as pd
+    import numpy as np
+    data = pd.read_csv("~/Documents/Student_data.csv")
+    data.drop(columns=["school"], axis=1, inplace=True)
+
+    pd.set_option('display.max_columns', None)
+    print("First few rows of data:")
+    print(data.head())
+#+END_SRC
+
+* Identifying Numerical and Categorical Columns
+
+#+BEGIN_SRC python :Session
+    numerical_cols = data.select_dtypes(exclude=['category', 'object']).columns
+    categorical_cols = data.select_dtypes(include=['category', 'object']).columns
+#+END_SRC
+
+* Encoding Categorical Data
+
+#+BEGIN_SRC python :Session
+    data_categorical = data.drop(columns=numerical_cols)
+    encoded_data = pd.get_dummies(data_categorical, columns=['sex'])
+#+END_SRC
+
+* Calculating Mean of a Numerical Column
+
+#+BEGIN_SRC python :Session
+    np.mean(data["age"])
+#+END_SRC
+
+* Normalizing the Data
+
+#+BEGIN_SRC python :Session
+    from sklearn.pipeline import Pipeline
+    from sklearn.preprocessing import StandardScaler
+
+    numerical_pipeline = Pipeline([
+	('scaler', StandardScaler())
+    ])
+
+    numerical_data = numerical_pipeline.fit_transform(data[numerical_cols])
+
+    # Convert transformed data back to DataFrame
+    numerical_data_df = pd.DataFrame(numerical_data, columns=numerical_cols)
+
+    concatenated = pd.concat([encoded_data, numerical_data_df], axis=1)
+#+END_SRC
+
+* Hyperparameter Tuning and Model Training
+
+#+BEGIN_SRC python :Session
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.metrics import accuracy_score, confusion_matrix, roc_curve, roc_auc_score
+
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    import joblib
+
+    X = concatenated.drop('pass/fail', axis=1)
+    y = concatenated['pass/fail']
+
+    # Convert target variable to numerical (0 and 1)
+    y = y.map({'fail': 0, 'pass': 1})
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+#+END_SRC
+
+* Initialize and Fit Decision Tree Classifier
+
+#+BEGIN_SRC python :Session
+    model = DecisionTreeClassifier(random_state=42)
+    model.fit(X_train, y_train)
+#+END_SRC
+

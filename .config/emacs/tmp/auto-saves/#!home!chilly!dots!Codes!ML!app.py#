@@ -1,0 +1,62 @@
+import streamlit as st
+import pandas as pd
+import numpy as np
+import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+modelPath = joblib.load("./model.pkl")
+model = model_path.get(modelPath)
+
+try:
+    expCols = model.featNamesIn
+except AttributeError:
+    st.error(
+        "Model does not contain feature names. Please ensure the model is trained with feature names."
+    )
+
+
+def main():
+    # Set the title of the web app
+    st.title("Student Information")
+    st.write(
+        "This is a web app that predicts the sex of a student based on their information."
+    )
+
+    col1, col2 = st.columns([2, 1])
+
+    with col1:
+        st.subheader("Student Information")
+        # Add input fields for features
+        student_name = st.text_input("Student Name")
+        sex = st.selectbox("Students Sex", ["Male", "Female"])
+        age = st.slider("Students Age", 0, 100, 25)
+        address = st.text_input("Home Address Type", ["Urban", "Rural"])
+        famsize = st.selectbox("Family Size", ["3 or Less", "More than 3"])
+        Pstatus = st.selectbox("Parents Status", ["Living together", "Apart"])
+        Medu = st.selectbox("Mother's Education", 0, 4, 2)
+        Fedu = st.selectbox("Father's Education", 0, 4, 2)
+        Mjob = st.selectbox(
+            "Mother's Occupation",
+            ["Teacher", "Doctor/Nurse", "Services", "At Home", "Other"],
+        )
+        Fjob = st.selectbox(
+            "Father's Occupation",
+            ["Teacher", "Doctor/Nurse", "Services", "At Home", "Other"],
+        )
+        reason = st.selectbox(
+            "Reason for chosing this school",
+            ["Cose to Home", "School Reputation", "Course Preference", "Other"],
+        )
+        guardian = st.selectbox("Studnet's Guardian", ["Mother", "Father", "Other"])
+        traveltime = st.slider("Travel Time to school (hours)", 1, 4, 2)
+        studytime = st.slider("Weakly Study Time (hours)", 1, 4, 2)
+        failures = st.slider("Number of Past Class Failures", 0, 3, 0)
+        schoolsup = st.selectbox("Extra Educational Support", ["No", "Yes"])
+        famsup = st.selectbox("Family Educational Support", ["No", "Yes"])
+        paid = st.selectbox("Extra Paid Classes", ["No", "Yes"])
+        activities = st.selectbox("Extra Curricular Activities", ["No", "Yes"])
+        nursery = st.selectbox("Attended Nursery Class", ["No", "Yes"])
+        higher_edu = st.selectbox("Higher Education", ["No", "Yes"])
+        internet = st.selectbox("Internet Access at Home", ["No", "Yes"])
+        romantic = st.selectbox("In a Romantic Relationship", ["No", "Yes"])

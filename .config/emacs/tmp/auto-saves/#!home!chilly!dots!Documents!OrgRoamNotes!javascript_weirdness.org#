@@ -1,0 +1,152 @@
+:PROPERTIES:
+:ID:       8f4259ab-8bb8-4c27-ba14-75a5a07eba95
+:END:
+#+title: Javascript Weirdness
+#+author:  u/olaeCh0thuiNiihu
+
+
+* Why it sucks
+
+Got this from the: [[https://www.reddit.com/r/emacs/comments/1104zzt/why_cant_paste_string_which_copied_from_other/][Reddit Post]]
+
+#+BEGIN_SRC js  :results output
+   console.log('5' - 3)
+#+END_SRC
+
+#+RESULTS:
+: 2
+- Weak typing + implicit conversions = headaches
+
+
+#+BEGIN_SRC js  :results output
+   console.log('5' + 3)
+#+END_SRC
+
+#+RESULTS:
+: 53
+- Because we all love consistency
+
+#+BEGIN_SRC js  :results output
+   console.log('5' - '4')
+#+END_SRC
+
+#+RESULTS:
+: 1
+- string - string = integer??
+
+#+BEGIN_SRC js  :results output
+    console.log('5' + + '5')
+#+END_SRC
+
+#+RESULTS:
+: 55
+
+#+BEGIN_SRC js  :results output
+    console.log('foo' + + 'foo')
+#+END_SRC
+
+#+RESULTS:
+: fooNaN
+- Marvelous
+
+#+BEGIN_SRC js  :results output
+    console.log('5' + - '2')
+#+END_SRC
+
+#+RESULTS:
+: 5-2
+- Obviously
+
+#+BEGIN_SRC js  :results output
+    console.log('5' + - + - - + - - + + - + - + - + - - - '-2')
+#+END_SRC
+
+#+RESULTS:
+: 52
+- Apparently it's ok
+
+#+BEGIN_SRC js  :results output
+    var x = 3;
+    console.log('5' + x - x)
+#+END_SRC
+
+#+RESULTS:
+: 50
+
+#+BEGIN_SRC js  :results output
+    var x = 3;
+    console.log('5' - x + x)
+#+END_SRC
+
+#+RESULTS:
+: 5
+
+#+BEGIN_SRC js  :results output
+    var x = 3;
+    var PI=((++[+[]][+[]]+[]+ ++[+[]][+[]]+[])* ++[+[]][+[]])*(++[+[]][+[]]+ ++[+[]][+[]])/((+[+[]]+'x'+(![]+[])[[+!+[]+!+[]]*[+!+[]+!+[]]])/(++[+[]][+[]]+ ++[+[]][+[]]));
+    console.log(PI)
+#+END_SRC
+
+#+RESULTS:
+: 3.142857142857143
+- Wtf
+
+Fuck consistency and transitivity:
+
+#+BEGIN_SRC js  :results output
+    '' == '0' // false
+    0 == ''   // true
+    0 == '0'  // true
+
+    false == 'false' // false
+    false == '0' // true
+
+    false == undefined // false
+    false == null  // false
+
+    null == undefined // true
+    '\t\r\n' == 0   // true
+#+END_SRC
+
+Fuck sanity:
+
+#+BEGIN_SRC js  :results output
+    typeof null == 'object'; // true
+    typeof NaN == 'number'; // true
+    NaN == NaN // false
+#+END_SRC
+
+Here's a great idea: automatic semicolon insertion!
+
+#+BEGIN_SRC js  :results output
+    // guess what this function returns, I dare you:
+    function f() {
+	return
+	{
+	    foo: 'bar'
+	};
+    }
+#+END_SRC
+
+#+RESULTS:
+
+If that didn't blow your mind, how about this:
+
+#+BEGIN_SRC js  :results output
+    (Number.MAX_VALUE + 999) == Number.MAX_VALUE; // true
+    (Number.MAX_VALUE * 1.1) == Number.MAX_VALUE; // false, Infinity
+#+END_SRC
+
+Speaking of numbers, all numbers are 64-bit, except if you plan to do
+any bitwise operation at all, in which case they're silently converted
+to 32 bits, than back to 64 again:
+
+#+BEGIN_SRC js  :results output
+    Math.pow(2,31) == 2147483648 // true, as expected
+    1 << 31 == -2147483648 // also true, because fuck you
+#+END_SRC
+
+#+BEGIN_SRC js  :results output
+    ",,," == new Array(4) // true
+#+END_SRC
+

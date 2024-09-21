@@ -1,0 +1,68 @@
+:PROPERTIES:
+:ID:       428990bb-e673-4c0d-b9eb-b3595fd9d148
+:END:
+#+title: ML6 - Implementing decision tree on a dataset
+#+author:  Adarsha Acharya
+
+* Machine Learning Data Preparation
+
+#+BEGIN_SRC python
+    import scipy.stats as stats
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+#+END_SRC
+
+#+BEGIN_SRC python
+    df = pd.read_csv('~/Documents/Student_data.csv')
+    categorical_columns = df.select_dtypes(include=['category','object']).columns
+    numerical_columns = df.select_dtypes(exclude=['category','object']).columns
+    num_cols = len(numerical_columns)
+#+END_SRC
+
+* Hyperparameter
+
+#+BEGIN_SRC python
+    df = pd.read_csv('~/Documents/Student_data.csv')
+    data_categorical = df.drop(columns=numerical_columns)
+    encoded_data = pd.get_dummies(data_categorical, columns=['sex'])
+
+    df['GPA'] = df['G3'] / 5  # Since G3 ranges from 0 to 20
+    df.drop(columns=['school'], axis=1, inplace=True)
+
+    # Create new column 'pass/fail' based on GPA
+    df['pass/fail'] = df['G3'].apply(lambda x: 'pass' if x >= 12 else 'fail')
+
+    import pandas as pd
+    from sklearn.model_selection import train_test_split
+    from sklearn.tree import DecisionTreeClassifier
+    from sklearn.metrics import accuracy_score, confusion_matrix, roc_curve, roc_auc_score
+
+    final_data = df
+
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import os
+    import joblib
+
+    X = final_data.drop('pass/fail', axis=1)
+    y = final_data['pass/fail']
+
+    # Convert target variable to numerical (0 and 1)
+    y = y.map({'fail': 0, 'pass': 1})
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+#+END_SRC
+
+* Initialize Decision Tree Classifier
+
+#+BEGIN_SRC python
+    model = DecisionTreeClassifier(random_state=42)
+#+END_SRC
+
+* Fit the Model
+
+#+BEGIN_SRC python
+    model.fit(X_train, y_train)
+#+END_SRC
+

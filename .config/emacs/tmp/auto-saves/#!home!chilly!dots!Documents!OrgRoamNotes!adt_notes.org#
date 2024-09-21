@@ -1,0 +1,329 @@
+:PROPERTIES:
+:ID:       08a57ffe-2088-457c-8657-137f75c737cc
+:END:
+#+title: ADT Notes
+#+author:  Adarsha Acharya
+* 1. Incremental Model
+** a. Characteristics
+i. Divided into modules, for development of each feature.
+ii. Each realease of a module builds on top of the previous release
+iii. Involves continuous user feedback
+iv. One feature is worked at, at a time.
+
+** b. Advantages
+i. Errors are easily determined
+ii. Continuous Feedback
+iii. Flexible enough to accomodate changes easily
+iv. Prioritized delivery
+
+** c. Disadvantages
+i. High Cost
+ii. Good planning required
+iii. Long time needed if features are more
+iv. Scope Creep, Integration issues
+
+* 2. DFD for Sports week
+** a. Processes and agents:
+*** Processes:
+- Registration
+- Team distribution
+- Even Scheduling
+- Score Tracking
+- Prize distribution
+*** Agents:
+- Students
+- Students Council
+- Judges/Refrees
+- College management
+#+begin_example
+  In a DFD, the agents are represented by a rectangle and the Processes by circles
+#+end_example
+
+| Functional Requirements        | Non Functional Requirements                     |
+| Online Registration system     | Online System capacity (no of people at a time) |
+| Event Scheduling functionality | Efficiency and reliability                      |
+| Score tracking system          | Accuracy                                        |
+| Prize distribution management  | Usability and Security                          |
+
+* 3. Reuse, design pattern
+** Lower cost: Less manpower needed.
+** Faster development: Less code needed to write.
+** Lower risks: Already verified code is used.
+
+** Design Pattern:
+Common repeatable process of approaching a solution. Templates. Examples: Online Banking system
+
+* 4. V model, alpha beta testing
+| Requirements analysis - Acceptance test     |
+| System Design         - System testing      |
+| Architecture design   - Integration testing |
+| Module design         - Unit Testing        |
+| CODING                ---^                  |
+
+** Alpha testing
+- By the team of developers themselves
+- For major bugs
+- In controlled environment
+
+** Beta testing
+- By users
+- For edge cases
+- In real environment
+
+* 5. Software crisis
+** Factors contributing to it.
+- Lack proper software development processes
+- Increasing complexity
+- Inadequate testing
+- Increasing demand, same workforce.
+** Solutions
+- Educate people of software engineering techniques
+- Utilize abstractions with the help of APIs and libraries
+- Increase rate of testing each release
+- Use reusable code.
+  
+* What Customer wants, guidelines for requirements elicitation process
+Reason for difficulty to understand what customer wants 
+- Communication barrier due to technical knowledge gap
+- Customer doesn't know what they want
+- Changing requirements
+
+Guidelines for requirement elicitation:
+
+1. Establish clear communication channels with stakeholders
+2. Use multiple elicitation techniques (interviews, surveys, prototypes)
+3. Actively listen and ask probing questions
+4. Document and validate requirements with stakeholders
+5. Prioritize requirements based on business value
+6. Use visual aids like mockups or user stories to clarify concepts
+7. Conduct regular review sessions to refine requirements
+
+*  Short notes [4\*4]
+
+a) Clean room engineering:
+
+- Software development process focusing on defect prevention
+- Emphasizes mathematical verification of design
+- Separates design and testing teams
+- Aims for statistical quality control
+
+b) Risk analysis:
+
+- Process of identifying, assessing, and prioritizing project risks
+- Involves quantitative and qualitative risk assessment
+- Helps in developing risk mitigation strategies
+- Crucial for project planning and management
+
+c) COT reuse:
+
+- Commercial Off-The-Shelf (COTS) reuse
+- Involves integrating pre-built commercial software components
+- Can significantly reduce development time and costs
+- Requires careful evaluation and integration planning
+
+d) Need for Software Configuration Management:
+
+- Manages changes to software artifacts throughout the development lifecycle
+- Ensures traceability of changes and version control
+- Facilitates collaborative development and integration
+- Essential for maintaining system integrity and managing complexity
+
+* 8. LOC and FP based estimation models [5]
+
+LOC (Lines of Code) based estimation: Advantages:
+
+- Simple to understand and calculate
+- Directly measurable
+
+Disadvantages:
+
+- Varies with programming language and coding style
+- Not suitable for early estimation
+
+Function Point (FP) based estimation: Advantages:
+
+- Language-independent
+- Can be estimated early in the project lifecycle
+
+Disadvantages:
+
+- More complex to calculate
+- Requires trained estimators
+
+* 9. Software reuse benefits and challenges; Component-based vs traditional approaches [3+3]
+
+Benefits of software reuse:
+
+1. Increased productivity
+2. Improved software quality
+3. Faster time-to-market
+4. Reduced development costs
+
+Challenges:
+
+1. Initial investment in creating reusable components
+2. Potential mismatch between components and specific project needs
+3. Maintenance of reusable component libraries
+4. Overcoming "not invented here" syndrome
+
+Component-based vs traditional approaches: Component-based:
+
+- Focuses on assembling pre-built components
+- Emphasizes modularity and interoperability
+- Often faster development cycles
+
+Traditional:
+
+- Builds systems from scratch
+- More flexibility in custom designs
+- May result in tighter integration but longer development timess
+
+* 10. CMMI and its levels [6]
+
+CMMI (Capability Maturity Model Integration) is a process improvement approach that provides organizations with the essential elements of effective processes.
+
+CMMI Levels:
+
+1. Initial (Level 1):
+   - Processes are unpredictable, poorly controlled, and reactive
+   - No stable environment for supporting processes
+2. Managed (Level 2):
+   - Projects have ensured that processes are planned and executed according to policy
+   - Projects employ skilled people with adequate resources to produce controlled outputs
+3. Defined (Level 3):
+   - Processes are well characterized and understood
+   - Standard processes are established and improved over time
+4. Quantitatively Managed (Level 4):
+   - Processes are measured and controlled using statistical and other quantitative techniques
+   - Quantitative objectives for quality and process performance are established
+5. Optimizing (Level 5):
+   - Focus on continually improving process performance through incremental and innovative improvements
+   - Organization is focused on overall organizational performance optimization
+
+A simple representation of CMMI levels might look like this:
+
+#+begin_src c
+    Level 5: Optimizing
+    ^
+    Level 4: Quantitatively Managed
+    ^
+    Level 3: Defined
+    ^
+    Level 2: Managed
+    ^
+    Level 1: Initial
+#+end_src
+
+*  SRS document importance; Requirements for "issuing book from library" [2+5]
+
+Importance of SRS (Software Requirements Specification) document:
+
+1. Serves as a contract between stakeholders and developers
+2. Provides a clear blueprint for the development team
+3. Facilitates estimation and planning
+4. Serves as a basis for validation and verification
+
+Requirements for "issuing book from library":
+
+Functional requirements:
+
+1. User authentication system
+2. Book search functionality
+3. Book availability checking
+4. Book reservation system
+5. Check-out process
+6. Due date assignment and notification
+7. Return process
+
+Non-functional requirements:
+
+1. Performance: The system should process a check-out within 30 seconds
+2. Usability: Intuitive interface for both librarians and borrowers
+3. Security: Secure storage of user data and borrowing history
+4. Reliability: System should be available 99% of the time during library hours
+5. Scalability: Should handle up to 1000 concurrent users
+6. DFD for "Bus Ticket Booking System" [3+5]
+
+Level 0 DFD (Context Diagram):
+
+#+begin_src c
+    [Passenger]
+    |
+    v
+    [Payment] <-> (Bus Ticket Booking System) <-> [Bus Operator]
+#+end_src
+
+Level 1 DFD:
+
+#+begin_src mermaid :file /tmp/test.png
+    graph TD
+	P[Passenger] --> SR(1. Search Routes)
+	SR <--> RD[(Route Database)]
+	P --> SJ(2. Select Journey)
+	SJ --> CA(3. Check Availability)
+	CA <--> SI[(Seat Inventory)]
+	SJ --> MR(4. Make Reservation)
+	MR <--> PP(5. Process Payment)
+	PP <--> PG[Payment Gateway]
+	MR --> IT(6. Issue Ticket)
+	PP --> UI(7. Update Inventory)
+	UI --> BO[Bus Operator]
+	UI --> SI
+#+end_src
+
+#+RESULTS:
+[[file:/tmp/test.png]]
+
+* Modular decomposition styles; Repository model [4+3+2]
+
+Modular decomposition styles:
+
+1. Functional decomposition: Breaks system into modules based on specific functions or features
+2. Object-oriented decomposition: Organizes system into objects that encapsulate data and behavior
+
+Repository model:
+- Centralized data structure (repository) accessed by independent components
+- All interactions between components occur through the repository
+
+Advantages:
+
+1. Efficient data sharing
+2. Supports integration of diverse components
+3. Centralized data management
+
+Disadvantages:
+
+1. Can become a performance bottleneck
+2. May lead to complex data structures
+3. Potential single point of failure
+
+* Black box vs white box testing; Necessity for software testing [5+3]
+
+Black box testing:
+
+- Tests functionality without knowledge of internal code
+- Focuses on inputs and outputs
+- Also known as functional testing
+
+White box testing:
+
+- Examines internal logic and code structure
+- Focuses on code coverage and paths
+- Also known as structural testing
+
+Key differences:
+
+1. Knowledge of internal workings: Not required for black box; essential for white box
+2. Test case design: Based on specifications for black box; based on code structure for white box
+3. Timing: Black box can start earlier; white box requires implemented code
+4. Skill set: Black box testers need domain knowledge; white box testers need programming skills
+
+Necessity of software testing: Software testing is necessary because:
+
+1. It ensures the software meets specified requirements
+2. Identifies and prevents defects before deployment
+3. Improves overall software quality and reliability
+4. Enhances user satisfaction and trust
+5. Reduces long-term maintenance costs
+
+Both black box and white box testing are necessary for comprehensive software testing. Black box testing ensures the software meets user requirements, while white box testing verifies the internal logic and improves code quality. Using both approaches provides a more thorough evaluation of the software's functionality and structure.

@@ -1,0 +1,62 @@
+#include <bitset>
+#include <cmath>
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function to perform arithmetic right shift
+int arithmeticRightShift(int x, unsigned int shift) {
+  return (x >> shift) | (x < 0 ? ~(~0U >> shift) : 0);
+}
+
+// Booth's algorithm implementation
+string boothMultiply(int multiplicand, int multiplier) {
+  int m = multiplicand;
+  int r = 0;
+  int a = 0;
+  int q = multiplier;
+
+  int bits = 8; // Using 8-bit representation
+
+  for (int i = 0; i < bits; i++) {
+    // Get the least significant bit of q and r
+    int q0 = q & 1;
+    int q_1 = r & 1;
+
+    if (q0 == 1 && q_1 == 0) {
+      a = a - m;
+    } else if (q0 == 0 && q_1 == 1) {
+      a = a + m;
+    }
+
+    // Arithmetic right shift the [a,q,r] trio
+    r = (q & 1); // r gets the least significant bit of q
+    q = arithmeticRightShift(q, 1);
+    if (a & 1)
+      q |= (1 << (bits - 1)); // Set MSB of q if LSB of a is 1
+    a = arithmeticRightShift(a, 1);
+  }
+
+  // Combine a and q to get the final result
+  int result = (a << bits) | q;
+
+  // Convert to 16-bit binary string representation
+  return bitset<16>(result).to_string();
+}
+
+int main() {
+  string a, b;
+  cout << "Enter two binary numbers to multiply: ";
+  cin >> a >> b;
+
+  // Convert binary strings to integers
+  int multiplicand = bitset<8>(a).to_ulong();
+  int multiplier = bitset<8>(b).to_ulong();
+
+  string result = boothMultiply(multiplicand, multiplier);
+
+  cout << "Result of " << a << " * " << b << " = " << result << endl;
+
+  return 0;
+}

@@ -1,0 +1,15 @@
+:PROPERTIES:
+:ID:       335cb05b-da98-4946-905c-8be2bc775674
+:END:
+#+title: Instrumentation 2 (I2)
+#+author:  Adarsha Acharya
+
+[[file:~/dots/Documents/miscdump/instru .pdf][Jyoti Assignment 2-5]]
+
+* Notes:
+
+[[/home/chilly/Documents/CollegeNotes/I2/module1.pdf][Module1]]
+[[/home/chilly/Documents/CollegeNotes/I2/module2.pdf][Module2]]
+[[/home/chilly/Documents/CollegeNotes/I2/module#3.pdf][Module3]]
+[[/home/chilly/Documents/CollegeNotes/I2/module#4.pdf][Module4]]
+[[/home/chilly/Documents/CollegeNotes/I2/module#5.pdf][Module5]]

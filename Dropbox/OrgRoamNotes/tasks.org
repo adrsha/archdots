@@ -1,0 +1,26 @@
+:PROPERTIES:
+:ID:       7802496a-85dd-4192-9c61-fe0aabb967a4
+:END:
+#+title: Tasks
+#+author:  Adarsha Acharya
+
+
+* LONG TERM GOALS
+** MODO [#A] Get into MIT
+** MODO [#A] Mental Health
+** MODO [#A] Find Liina
+
+* DAILIES
+** TODO Instrumentation Lab 4
+*** ASSIGNMENT [#B] Instrumentation Assignments
+** ASSIGNMENT [#B] Data Comm Assignments
+** ASSIGNMENT [#B] COA Assignment 3
+** TODO Activate the backup plan with Ayusha on instrumentation day
+SCHEDULED: <2024-08-11 Sun>
+** DONE Mid Deffence Report
+SCHEDULED: <2024-07-21 Sun>
+** DONE CG Project
+
+* SIDE GOALS
+** TODO Finish the Research
+** TODO Work on the startup

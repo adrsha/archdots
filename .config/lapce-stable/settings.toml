@@ -1,0 +1,11 @@
+[core]
+color-theme = "Lapce Dark"
+modal = true
+
+[editor]
+font-family = "JetBrainsMono NF"
+bracket-pair-colorization = true
+
+[ui]
+font-family = "Segoe UI Variable "
+drop-shadow-width = 2
