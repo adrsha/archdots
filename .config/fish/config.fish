@@ -13,6 +13,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export SKIM_DEFAULT_OPTIONS=" --color=bg+:-1,spinner:5,fg:15,header:1,info:13,pointer:5,marker:1,prompt:13,fg+:5,border:0"
 export FZF_DEFAULT_OPTS=" --color=bg+:-1,spinner:5,fg:15,header:1,info:13,pointer:5,marker:1,prompt:13,fg+:5,border:0"
 
+
 if status is-interactive
 	# Commands to run in interactive sessions can go here
 	#  * Create missing directories in path when calling `mkdir`
@@ -28,25 +29,27 @@ if status is-interactive
 	alias n='nvim'
 	alias fc='nvim ~/.config/fish/config.fish'
 	alias hc='nvim ~/.config/hypr/hyprland.conf'
-	alias y='yazi'
-	alias icat="kitty +kitten icat"
-	alias yay='yay --bottomup'
+	alias ac='nvim ~/.config/alacritty/alacritty.toml'
+	alias f='cd (fd | fzf)'
+	alias yay='yay --color=auto'
   alias pyv='python venv ./bin/activate.fish'
-	alias ins='yay --bottomup -S'
-	alias upd='yay -Syu'
-	alias calc='~/Codes/rustCalc/target/release/rustCalc'
-	alias uni='yay -Rcns'
+	alias ins='yay --color=auto -S'
+	alias upd='yay --color=auto -Syu'
+	alias calc='~/Codes/SHARKalculator/target/release/rustCalc'
+	alias uni='yay --color=auto -Rcns'
 	alias ls='lsd'
 	alias nr='sudo systemctl restart NetworkManager --now'
 	alias nm='nmtui'
 	alias nc='ping google.com'
 	alias ll='lsd -l'
 	alias l='lsd -l'
+	alias t='n ~/Notes/Todo.norg'
+  alias fs='sudo du -h -d 2 | sort -rh'
 	alias la='lsd -A'
 	alias lf='lsd --tree --depth=1'
 	alias lt='lsd --tree --depth=2'
 	alias gitt='cat ~/Documents/gittoken | wl-copy'
-
+  alias gpush='cat ~/Documents/gittoken | wl-copy; git push origin $(git branch --show-current)'
 end
 
 zoxide init fish --cmd c| source

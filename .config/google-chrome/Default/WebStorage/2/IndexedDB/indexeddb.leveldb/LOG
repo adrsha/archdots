@@ -1,0 +1,7 @@
+2024/10/03-12:08:28.621 23cfd Reusing MANIFEST /home/chilly/.config/google-chrome/Default/WebStorage/2/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2024/10/03-12:08:28.621 23cfd Recovering log #3
+2024/10/03-12:08:28.624 23cfd Reusing old log /home/chilly/.config/google-chrome/Default/WebStorage/2/IndexedDB/indexeddb.leveldb/000003.log 
+2024/10/03-12:18:32.513 23cf3 Level-0 table #5: started
+2024/10/03-12:18:32.541 23cf3 Level-0 table #5: 53819 bytes OK
+2024/10/03-12:18:32.550 23cf3 Delete type=0 #3
+2024/10/03-12:18:32.551 23cf3 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

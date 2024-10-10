@@ -1,0 +1,8 @@
+2024/10/09-20:56:28.451 1709f1 Creating DB /home/chilly/.config/google-chrome/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm since it was missing.
+2024/10/09-20:56:28.492 1709f1 Reusing MANIFEST /home/chilly/.config/google-chrome/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
+2024/10/09-20:56:35.863 1709fc Level-0 table #5: started
+2024/10/09-20:56:35.926 1709fc Level-0 table #5: 4421485 bytes OK
+2024/10/09-20:56:35.934 1709fc Delete type=0 #3
+2024/10/09-20:56:41.349 1709f2 Level-0 table #7: started
+2024/10/09-20:56:41.416 1709f2 Level-0 table #7: 4874335 bytes OK
+2024/10/09-20:56:41.426 1709f2 Delete type=0 #4

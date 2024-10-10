@@ -1,170 +1,224 @@
 * {
   border: none;
   box-shadow: none;
-  text-shadow: none;
-  font-family: "Segoe UI";
 }
-
-window.bar {
-  color: #CDD6F4;
-  font-size: 16px;
-}
-
 
 .mainBar {
-  margin-left: 10px;
-  margin-right: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  min-height: 800px;
-  background-color: #0a0a0a;
-  box-shadow: 0px 0px 10px 2px #000000;
+  background-color: transparent;
+}
+
+.systrayWidget>button {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.workspaceContainerContainer,
+.volumeWidgetContainerContainer {
+  background-color: transparent;
+}
+
+.volumeWidgetContainer {
+  margin: 5px;
+  padding-right: 10px;
+  background-color: #141B1E;
+  font-size: 16px;
+  font-weight: 600;
   border-radius: 10px;
 }
 
-.workspaces {
-  margin-top: 10px;
-  font-weight: bold;
+.volumeWidget {
+  min-width: 100px;
+  padding-left: 10px;
 }
 
-.workspaces>* {
-  background: transparent;
-  color: #CDD6F4;
-  border-bottom: none;
-  border-top: none;
+slider {
+  /* background-size: 10px 20px; */
+  /* min-width: 15px; */
+  /* min-height: 23px; */
+  background-color: transparent;
+  border-radius: 0 20px 20px 0;
+  padding: 0px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: -16px;
+  margin-bottom: -16px;
 }
 
-.workspaces button {
-  min-height: 2.2em;
-  background-color: rgba(0, 0, 0, 1);
-  color: #CDD6F4;
+highlight {
+  border-radius: 50px 50px 50px 50px;
+  margin-top: -13px;
+  margin-bottom: -13px;
+  background-color: #0A0E0F;
+}
+
+trough {
+  min-height: 6px;
+  margin-right: 4px;
+  margin-left: 4px;
   border-radius: 10px;
-  margin: 10px;
-  margin-bottom: 0px;
-  margin-top: 2px;
-  transition: background-color 200ms ease, color 200ms ease, opacity 200ms ease;
-  min-width: 0;
-  padding-top: 0;
-  font-weight: bold;
-  padding-bottom: 0;
-  opacity: 1;
+  background-color: transparent;
 }
 
-.workspaces button:hover,
-.workspaces button.occupied:hover {
-  background-color: #0a0a0a;
+.volumeWidgetIcon,
+.batteryWidgetIcon,
+.dateWidgetIcon,
+.bluetoothWidgetIcon,
+.networkIcon {
+  background-color: #8CCF7E;
+  color: #0A0E0F;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.workspaces button.focused {
-  background-color: #4A4541;
-  color: #000000;
+.workspaceContainer {
+  padding-left: 10px;
 }
 
-.workspaces button.occupied {
-  background-color: #1f1f1f;
-  color: #CDD6F4;
+.bluetoothWidgetContainer,
+.players,
+.networkWidget,
+.focusedTitle,
+.workspaceContainer,
+.batteryWidget,
+.dateWidget {
+  font-family: "MartianMono Nerd Font";
+  font-weight: 600;
+  font-size: 15px;
+  /* padding-left: 10px; */
+  padding-right: 10px;
+  background-color: #141B1E;
+  border-radius: 10px;
+  margin: 5px;
+  transition: 0.5s ease;
 }
 
-.workspaces label {
-  margin: 2px;
+
+.lowBattery {
+  color: #E57474;
+}
+
+.workspace {
+  background-color: transparent;
+  font-size: 10px;
+  margin: 0;
+  color: #232A2D;
+  padding: 5px;
+}
+
+.activeWorkspace {
+  color: #dadada;
+  animation: blink 1s alternate;
+}
+
+.appLauncher {
+  font-family: "Google Sans";
+  /* font-family: "MartianMono Nerd Font"; */
+  font-weight: 600;
   font-size: 16px;
 }
 
-.workspaces button:first-child {
-  /* border-radius: 10px 10px 0 0; */
-  border-bottom: none;
-}
-
-.workspaces button:last-child {
-  /* border-radius: 0 0 10px 10px; */
-  border-top: none;
-}
-
-
-.clock {
-  padding-top: 10px;
-  padding-bottom: 30px;
-  font-weight: bold;
-  margin-left: 10px;
-  margin-right: 10px;
-  border-radius: 0px 0px 10px 10px;
-  color: #CDD6F4;
-}
-
-.calendar:first-child {
-  border-radius: 15px;
-}
-
-.tray_item {
-  padding: 0;
-  color: #CDD6F4;
-  background-color: #000000;
+.appLauncherItemContainer {
+  padding: 10px;
   border-radius: 10px;
-  margin-right: 7px;
-  margin-left: 7px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background-color: #141B1E;
 }
 
-
-.wifi_button {
-  background: #000000;
-  margin-right: 7px;
-  margin-left: 7px;
-  margin-bottom: 0px;
-  color: #CDD6F4;
-  font-weight: bold;
-  /* border-radius: 10px 10px 0 0; */
+.appLauncherItemIcon {
+  padding: 14px;
   border-radius: 10px;
-  transition: background-color 200ms ease, color 200ms ease;
-  opacity: 0.6;
-}
-
-.batC,
-.batD {
-  min-height: 20px;
-  min-width: 20px;
-  font-size: 5px;
-}
-
-.batC {
-  color: #A6E3A1;
-  background: #181825;
-}
-
-.batD {
-  color: #F8CDBA;
-  background: #181825;
-}
-
-
-.wifi_button:hover {
-  background: #CDD6F4;
-  color: #000000;
-}
-
-tooltip {
-  background: #181825;
-  border-radius: 10px;
-  font-weight: bold;
-}
-
-.clientsTray {
-  margin-left: 10px;
+  background-color: #202D30;
   margin-right: 10px;
 }
 
-.clientsTray button {
-  background-color: #000000;
-  border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  font-size: 25px;
+.appLauncherContainer {
+  border-radius: 0 10px 10px 0;
+  background-color: #0A0E0F;
 }
 
-.quote {
+.appLauncherSearch {
+  padding-left: 40px;
+  padding-top: 20px;
+  border-radius: 10px;
+  background-color: #0A0E0F;
+  border: none;
+}
+
+.notification-popups,
+.notifications {
+  padding: 0.5em;
   background-color: transparent;
-  font-size: 15px;
-  letter-spacing: 4px;
+}
+
+.notificon {
+  min-width: 68px;
+  min-height: 68px;
+  margin-right: 1em;
+}
+
+.notificon image {
+  font-size: 58px;
+  margin: 5px;
+  color: #dadada;
+}
+
+.notificon box {
+  min-width: 68px;
+  min-height: 68px;
+  border-radius: 7px;
+}
+
+.notiftitle {
+  color: #dadada;
+  font-size: 1.4em;
   font-weight: bold;
+}
+
+.notifbody {
+  color: #9a9a9a;
+}
+
+.notifactions .notifaction-button {
+  margin: 0 .4em;
+  margin-top: .8em;
+  padding: 10px;
+  background-color: #141B1E;
+}
+
+.notifactions .notifaction-button:first-child {
+  margin-left: 0;
+}
+
+.notifactions .notifaction-button:last-child {
+  margin-right: 0;
+}
+
+
+.notification {
+  min-width: 350px;
+  border-radius: 11px;
+  padding: 1em;
+  margin: .5em;
+  background-color: #0C1012;
+}
+
+.notification.critical {
+  border: 1px solid lightcoral;
+}
+
+
+
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
