@@ -1,0 +1,11 @@
+use std::io;
+
+fn main() {
+    let mut inp = String::new();
+    io::stdin().read_line(&mut inp).expect("There was an error");
+    
+    let mut val:i32 = inp.trim().parse().unwrap_or_else(| e |->i32 {
+        println!("{e}");
+        return 1;
+    });
+}

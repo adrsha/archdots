@@ -1,0 +1,7 @@
+:PROPERTIES:
+:ID:       6ffe54d1-1eb1-4566-847a-52fa4d4ac79e
+:END:
+#+title: # Javascript
+#+author:  Adarsha Acharya
+
+[[id:8f4259ab-8bb8-4c27-ba14-75a5a07eba95][Javascript Weirdness]]

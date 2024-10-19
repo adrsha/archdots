@@ -1,0 +1,10 @@
+:PROPERTIES:
+:ID:       373364e4-f5e1-444e-8ced-373f25533322
+:END:
+#+title: Sem5 - Bachelors
+#+author:  Adarsha Acharya
+
+* Courses
+
+[[id:5e0031f1-45ee-4278-8c5f-dd7429686332][Computer Organization and Architecture (COA)]]
+

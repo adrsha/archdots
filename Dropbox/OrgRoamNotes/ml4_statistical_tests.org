@@ -1,0 +1,173 @@
+:PROPERTIES:
+:ID:       d36a4ef0-361c-4663-bd5d-16090d509f36
+:END:
+#+title: ML4 - Statistical Tests
+#+author:  Adarsha Acharya
+#+date:  Jul 16, 2024 6 pm
+** Normality Tests
+
+# Preliminary
+
+#+BEGIN_SRC python
+    import pandas as pd
+    from scipy.stats import anderson, jarque_bera, shapiro, normaltest, kstest
+    from statsmodels.stats.diagnostic import lilliefors
+#+END_SRC
+
+* Test Normality Function
+
+#+BEGIN_SRC python
+    def test_normality(df, col):
+	print(f'Column: {col}')
+
+	# Shapiro-Wilk test
+	stat_shapiro, p_shapiro = shapiro(df[col])
+	print(f'Shapiro-Wilk Test: Statistics={stat_shapiro:.3f}, p-value={p_shapiro:.3f}')
+	if p_shapiro > 0.05:
+	    print(f'Shapiro-Wilk Test: {col} looks normally distributed (fail to reject H0)')
+	else:
+	    print(f'Shapiro-Wilk Test: {col} does not look normally distributed (reject H0)')
+
+	# Anderson-Darling test
+	result_anderson = anderson(df[col])
+	print(f'Anderson-Darling Test: Statistics={result_anderson.statistic:.3f}')
+	print(f'Anderson-Darling Test: Critical Values={result_anderson.critical_values}')
+	if result_anderson.statistic < result_anderson.critical_values[2]:
+	    print(f'Anderson-Darling Test: {col} looks normally distributed (fail to reject H0)')
+	else:
+	    print(f'Anderson-Darling Test: {col} does not look normally distributed (reject H0)')
+
+	# Jarque-Bera test
+	jb_stat, p_val_jb = jarque_bera(df[col])
+	print(f'Jarque-Bera Test: JB Statistics={jb_stat:.3f}, p-value={p_val_jb:.3f}')
+	if p_val_jb > 0.05:
+	    print(f'Jarque-Bera Test: {col} looks normally distributed (fail to reject H0)')
+	else:
+	    print(f'Jarque-Bera Test: {col} does not look normally distributed (reject H0)')
+
+	# D'Agostino and Pearson's test
+	stat_agostino, p_agostino = normaltest(df[col])
+	print(f"D'Agostino and Pearson's Test: Statistics={stat_agostino:.3f}, p-value={p_agostino:.3f}")
+	if p_agostino > 0.05:
+	    print(f"D'Agostino and Pearson's Test: {col} looks normally distributed (fail to reject H0)")
+	else:
+	    print(f"D'Agostino and Pearson's Test: {col} does not look normally distributed (reject H0)")
+
+	# Kolmogorov-Smirnov test
+	ks_stat, p_ks = kstest(df[col], 'norm')
+	print(f'Kolmogorov-Smirnov Test: KS Statistic={ks_stat:.3f}, p-value={p_ks:.3f}')
+	if p_ks > 0.05:
+	    print(f'Kolmogorov-Smirnov Test: {col} looks normally distributed (fail to reject H0)')
+	else:
+	    print(f'Kolmogorov-Smirnov Test: {col} does not look normally distributed (reject H0)')
+
+	# Lilliefors test
+	stat_lillifors, p_lillifors = lilliefors(df[col])
+	print(f'Lilliefors Test: Statistic={stat_lillifors:.3f}, p-value={p_lillifors:.3f}')
+	if p_lillifors > 0.05:
+	    print(f'Lilliefors Test: {col} looks normally distributed (fail to reject H0)')
+	else:
+	    print(f'Lilliefors Test: {col} does not look normally distributed (reject H0)')
+
+	print('\n')
+
+    # Perform Normality Tests for each numerical column
+    df = pd.read_csv("~/Documents/Student_data.csv")
+    num_col = list(df.select_dtypes(include=['category', 'object']).columns)
+    for col in num_col:
+	test_normality(df, col)
+#+END_SRC
+
+** Outlier Detection and Removal
+
+* Preliminary
+
+#+BEGIN_SRC python
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+
+    df = pd.read_csv('~/Documents/Student_data.csv')
+    categorical_columns = df.select_dtypes(include=['category', 'object']).columns
+    numerical_columns = df.select_dtypes(exclude=['category', 'object']).columns
+#+END_SRC
+
+* Functions to Detect Outliers Using IQR Method
+
+#+BEGIN_SRC python
+    def find_outliers_iqr(data):
+	outliers_mask = pd.Series(index=data.columns, dtype=bool)
+	for col in data.columns:
+	    if col in numerical_columns:
+		Q1 = data[col].quantile(0.25)
+		Q3 = data[col].quantile(0.75)
+		IQR = Q3 - Q1
+		lower_bound = Q1 - 1.5 * IQR
+		upper_bound = Q3 + 1.5 * IQR
+		col_outliers_mask = (data[col] < lower_bound) | (data[col] > upper_bound)
+		outliers_mask[col] = col_outliers_mask.any()
+	return outliers_mask
+
+    outliers_iqr_mask = find_outliers_iqr(df)
+    print("Outliers detected using IQR method:", outliers_iqr_mask)
+#+END_SRC
+
+* Functions to Detect Outliers Using Z-score Method
+
+#+BEGIN_SRC python
+    def find_outliers_zscore(data, threshold=3):
+	outliers_mask = pd.Series(index=data.columns, dtype=bool)
+	for col in data.columns:
+	    if col in numerical_columns:
+		mean = np.mean(data[col])
+		std_dev = np.std(data[col])
+		z_scores = np.abs((data[col] - mean) / std_dev)
+		col_outliers_mask = z_scores > threshold
+		outliers_mask[col] = col_outliers_mask.any()
+	return outliers_mask
+
+    outliers_zscore_mask = find_outliers_zscore(df)
+    print("\nOutliers detected using Z-score method:")
+    for col, is_outlier in outliers_zscore_mask.items():
+	print(f"{col}: {is_outlier}")
+#+END_SRC
+
+* Functions to Remove Outliers Using IQR Method
+
+#+BEGIN_SRC python
+    def remove_outliers_iqr(data):
+	cleaned_data = data.copy()
+	for col in data.columns:
+	    if col in numerical_columns:
+		Q1 = data[col].quantile(0.25)
+		Q3 = data[col].quantile(0.75)
+		IQR = Q3 - Q1
+		lower_bound = Q1 - 1.5 * IQR
+		upper_bound = Q3 + 1.5 * IQR
+		cleaned_data = cleaned_data[(cleaned_data[col] >= lower_bound) & (cleaned_data[col] <= upper_bound)]
+	return cleaned_data
+
+    cleaned_data_iqr = remove_outliers_iqr(df)
+    print("DataFrame after removing outliers using IQR method:")
+    print(cleaned_data_iqr)
+#+END_SRC
+
+* Functions to Remove Outliers Using Z-score Method
+
+#+BEGIN_SRC python
+    def remove_outliers_zscore(data, threshold=3):
+	cleaned_data = data.copy()
+	for col in data.columns:
+	    if col in numerical_columns:
+		mean = np.mean(data[col])
+		std_dev = np.std(data[col])
+		z_scores = np.abs((data[col] - mean) / std_dev)
+		cleaned_data = cleaned_data[z_scores <= threshold]
+	return cleaned_data
+
+    cleaned_data_zscore = remove_outliers_zscore(df)
+    print("\nDataFrame after removing outliers using Z-score method:")
+    print(cleaned_data_zscore)
+#+END_SRC
+

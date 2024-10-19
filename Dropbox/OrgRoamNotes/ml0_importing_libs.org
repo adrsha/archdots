@@ -1,0 +1,115 @@
+:PROPERTIES:
+:ID:       48ad39e3-745c-4d78-b4c7-2dc91fa03817
+:END:
+#+title: ML0 - Importing Libs
+#+filetags: :machinelearning:
+
+* Import numpy, pandas and matplot along with seaborn.
+
+#+BEGIN_SRC python
+    import numpy as np
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+#+END_SRC
+
+#+BEGIN_SRC python
+    df = pd.read_csv('~/Documents/Student_data.csv')
+#+END_SRC
+
+#+BEGIN_SRC python
+    df.head()
+#+END_SRC
+
+#+BEGIN_SRC python
+    df.shape
+#+END_SRC
+
+#+BEGIN_SRC python
+    df.info()
+#+END_SRC
+
+* Describing summary of the datasets
+#+BEGIN_SRC python
+    df.describe()
+#+END_SRC
+
+#+BEGIN_SRC python
+    list(df.columns)
+#+END_SRC
+
+* Handling missing values
+
+#+BEGIN_SRC python
+    df.isnull().sum()
+#+END_SRC
+
+Here, missing values: Mjob, Fjob, Famrel, freetime, i.e. 4 missing values.
+Mjob, Fjob = Objects
+Famrel, freetime = Float64
+
+* Listing the categorical and the Numerical columns
+
+There are two parts of our data: Numerical objects and other types. There is a better data type for objects, called categories, but objects are what pandas use by default.
+
+#+BEGIN_SRC python
+    categorical_columns = df.select_dtypes(include=['object']).columns
+    numerical_columns = df.select_dtypes(exclude=['object']).columns
+#+END_SRC
+
+#+BEGIN_SRC python
+    df['Mjob'].mode()[0]
+#+END_SRC
+
+Why did we keep zero? Because mode returns an array of values that have the highest frequencies. If there are multiple values with the highest frequency, all of them are in the array.
+
+#+BEGIN_SRC python
+    df['Mjob'].value_counts()
+#+END_SRC
+
+This prints the frequency of all values in Mjob.
+
+#+BEGIN_SRC python
+    df[categorical_columns].isnull().sum()
+#+END_SRC
+
+The categorical columns have a few null values in place of some of their values. The sum function sums all the values of a column.
+
+#+BEGIN_SRC python
+    print(df.loc[0, 'sex'])
+    print(df.iloc[0, 0])
+#+END_SRC
+
+The above prints a particular element in two different ways.
+
+* Box plot
+
+#+BEGIN_SRC python
+    plt.figure(figsize = (10, 6))
+    sns.boxplot(data = df[numerical_columns])
+    plt.xticks(rotation = 45)
+    plt.title("Box plot of numerical columns")
+    plt.show()
+#+END_SRC
+
+figsize is just the length for each axis, not the amounts.
+
+#+BEGIN_SRC python
+    df[categorical_columns] = df[categorical_columns].fillna(df[categorical_columns].mode().iloc[0])
+#+END_SRC
+
+Here, iloc is used because mode() returns a dataframe, as we are calculating it for each categorical column.
+
+Since there are outliers in columns, we use the median to fill in the missing values.
+
+#+BEGIN_SRC python
+    df[numerical_columns] = df[numerical_columns].fillna(df[numerical_columns].median())
+    print(df[numerical_columns].isnull().sum())
+#+END_SRC
+
+#+BEGIN_SRC python
+    df['freetime'].median()
+#+END_SRC
+
+To determine whether numerical columns follow a normal distribution, you can perform statistical tests or visual inspections. Normal distribution, also known as Gaussian distribution, is characterized by a bell-shaped curve where the data cluster around the mean, with most values close to the mean and fewer values farther away.
+

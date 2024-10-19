@@ -1,0 +1,14 @@
+:PROPERTIES:
+:ID:       a0d91a91-c9e5-4653-b392-d2e19762d1b9
+:END:
+#+Title:  👑 Main Node
+#+Author: Adarsha Acharya
+
+* Notes 
+
+ [[id:b09235a6-e215-4960-9b8d-0fb20c87eb9c][   Rough Notes ]]
+
+ [[id:7197de6f-8a2c-4ddb-87c0-a0903e2e6e30][   Machine Learning  ]]
+
+* Inbox 
+* 

@@ -1,0 +1,81 @@
+;;; -*- coding: utf-8; mode: lisp-data -*-
+(("/home/chilly/.cache/emacs/elpaca/repos/emacs/catppuccin-definitions.el" . 2656)
+ ("/home/chilly/Codes/rustCalc/src/main.rs" . 5285)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/computer_graphics_cg.org" . 127)
+ ("/home/chilly/.config/emacs/bindings.el" . 432)
+ ("/home/chilly/Documents/CollegeNotes/CG/"
+  (dired-filename . "/home/chilly/Documents/CollegeNotes/CG/Computer Graphics 081.docx"))
+ ("/home/chilly/Documents/OrgRoamNotes/tasks.org" . 66)
+ ("/home/chilly/.config/emacs/"
+  (dired-filename . "/home/chilly/.config/emacs/customs.el"))
+ ("/home/chilly/"
+  (dired-filename . "/home/chilly/.dosbox"))
+ ("/home/chilly/.config/emacs/customs.el" . 220)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/computer_organization_and_architecture_coa.org" . 282)
+ ("/home/chilly/.minecraft/global/zume.json5" . 1728)
+ ("/home/chilly/Documents/OrgRoamNotes/"
+  (dired-filename . "/home/chilly/Documents/OrgRoamNotes/tasks.org"))
+ ("/home/chilly/.config/emacs/init.el" . 5003)
+ ("/home/chilly/.config/emacs/customizations.el" . 1574)
+ ("/home/chilly/.config/ags/config.css" . 2607)
+ ("/home/chilly/.config/ags/config.js" . 2046)
+ ("/home/chilly/.config/ags/"
+  (dired-filename . "/home/chilly/.config/ags/config.css"))
+ ("/home/chilly/.config/"
+  (dired-filename . "/home/chilly/.config/emacs"))
+ ("/home/chilly/.config/ags/hyprlandmodule.js" . 597)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/"
+  (dired-filename . "/home/chilly/dots/Documents/OrgRoamNotes/tasks.org"))
+ ("/home/chilly/Documents/CollegeNotes/I2/"
+  (dired-filename . "/home/chilly/Documents/CollegeNotes/I2/module#3.pdf"))
+ ("/home/chilly/dots/Documents/OrgRoamNotes/ideas.org" . 166)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/instrumentation_2_i2.org" . 181)
+ ("/home/chilly/Documents/CollegeNotes/"
+  (dired-filename . "/home/chilly/Documents/CollegeNotes/I2"))
+ ("/home/chilly/Documents/"
+  (dired-filename . "/home/chilly/Documents/CollegeNotes"))
+ ("/home/chilly/Codes/"
+  (dired-filename . "/home/chilly/Codes/rustCalc"))
+ ("/home/chilly/Codes/rustCalc/"
+  (dired-filename . "/home/chilly/Codes/rustCalc/src"))
+ ("/home/chilly/Codes/rustCalc/src/"
+  (dired-filename . "/home/chilly/Codes/rustCalc/src/main.rs"))
+ ("/home/chilly/Codes/rusttut/src/main.rs" . 75)
+ ("/home/chilly/Codes/rusttut/src/"
+  (dired-filename . "/home/chilly/Codes/rusttut/src/main.rs"))
+ ("/home/chilly/Codes/rusttut/"
+  (dired-filename . "/home/chilly/Codes/rusttut/src"))
+ ("/home/chilly/dots/Documents/OrgRoamNotes/atomic_habits.org" . 285)
+ ("/home/chilly/Documents/OrgRoamNotes/sem5_bachelors.org" . 119)
+ ("/home/chilly/Documents/OrgRoamNotes/rough_notes.org" . 111)
+ ("/home/chilly/Documents/OrgRoamNotes/ml_5_analysis_of_filtered_dataset.org" . 129)
+ ("/home/chilly/Documents/OrgRoamNotes/ml6_implementing_decision_tree_on_a_dataset.org" . 148)
+ ("/home/chilly/Documents/OrgRoamNotes/ml4_statistical_tests.org" . 125)
+ ("/home/chilly/Documents/OrgRoamNotes/ml3_exploitary_data_analysis_using_correlation.org" . 150)
+ ("/home/chilly/Documents/OrgRoamNotes/ml0_importing_libs.org" . 150)
+ ("/home/chilly/Documents/OrgRoamNotes/ideas.org" . 83)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/adt_notes.org" . 324)
+ ("/home/chilly/dots/Documents/OrgRoamNotes/javascript_weirdness.org" . 345)
+ ("/home/chilly/dots/Codes/"
+  (dired-filename . "/home/chilly/dots/Codes/ML"))
+ ("/home/chilly/dots/Codes/COA/"
+  (dired-filename . "/home/chilly/dots/Codes/COA/addition"))
+ ("/home/chilly/dots/"
+  (dired-filename . "/home/chilly/dots/Codes"))
+ ("/home/chilly/dots/Documents/"
+  (dired-filename . "/home/chilly/dots/Documents/OrgRoamNotes"))
+ ("/home/chilly/dots/Documents/OrgRoamNotes/javascript.org" . 172)
+ ("/home/chilly/Codes/COA/addition.cpp" . 94)
+ ("/home/chilly/Codes/COA/"
+  (dired-filename . "/home/chilly/Codes/COA/addition.cpp"))
+ ("/home/chilly/.config/emacs/variables.el" . 29)
+ ("/home/chilly/.config/emacs/elpaca.el" . 3248)
+ ("/home/chilly/Documents/CollegeNotes/DC/psk.m" . 522)
+ ("/home/chilly/Documents/CollegeNotes/DC/"
+  (dired-filename . "/home/chilly/Documents/CollegeNotes/DC/psk.m"))
+ ("/home/chilly/.config/emacs/hooks.el" . 873)
+ ("/home/chilly/.config/emacs/org.el" . 1279)
+ ("/home/chilly/Downloads/"
+  (dired-filename . "/home/chilly/Downloads/DotsFromKotonTrion"))
+ ("/home/chilly/Documents/Obsidian/Notes/0 - Main Notes/Machine Learning/7 - Implementing this dataset using decision tree.md" . 1473)
+ ("/home/chilly/Codes/COA/division.cpp" . 58))
